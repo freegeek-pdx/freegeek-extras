@@ -1,3 +1,10 @@
+freegeek-extras (1.2.32) UNRELEASED; urgency=low
+
+  * freegeek-build-utils is built from it's own source package, no other
+    changes
+
+ -- Ryan Niebur <ryan@debian.org>  Wed, 30 Nov 2011 15:54:54 -0800
+
 freegeek-extras (1.2.31) freegeek-test; urgency=low
 
   * don't fail to install if cups isn't installed

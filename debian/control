@@ -24,24 +24,6 @@ Description: customizations for freegeek users
  configuration settings. This package also installs some
  extra packages that are useful to freekbox users.
 
-Package: freegeek-build-utils
-Architecture: all
-Depends: ${misc:Depends},
-# printme
- ruby, libtui-ruby (>= 1.11), lshw,
- libtui-ruby1.8 (>= 1.15),
- lsb-release, dmidecode,
-# basiccheck
- pmount, alsa-utils, libgettext-ruby1.8,
-# stress-test
- stress,
- cpufrequtils,
-Recommends: freegeek-extras-pdx | freegeek-extras-freegeek
-Breaks: freegeek-extras (<= 1.2.5)
-Replaces: freegeek-extras
-Description: tools used in freegeek's build process
- Freegeek's diagnostic scripts.
-
 Package: freegeek-extras-pdx
 Architecture: all
 Depends: ${misc:Depends}, freegeek-archive-keyring, lsb-release, ubufox (>= 0.9~rc2-0ubuntu2)
