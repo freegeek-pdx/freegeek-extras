@@ -1,9 +1,9 @@
-freegeek-extras (1.2.32) UNRELEASED; urgency=low
+freegeek-extras (1.2.32) freegeek-test; urgency=low
 
   * freegeek-build-utils is built from it's own source package, no other
     changes
 
- -- Ryan Niebur <ryan@debian.org>  Wed, 30 Nov 2011 15:54:54 -0800
+ -- Ryan Niebur <ryan@debian.org>  Sat, 03 Dec 2011 10:14:18 -0800
 
 freegeek-extras (1.2.31) freegeek-test; urgency=low
 
