@@ -42,10 +42,10 @@ Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
 
 var HOMEPAGE_OFFLINE = "file:///usr/share/freegeek-extras/home/index.html";
 
-function AboutHome() {}
-AboutHome.prototype = {
-  classDescription: "About Home",
-  contractID: "@mozilla.org/network/protocol/about;1?what=home",
+function AboutStartpage() {}
+AboutStartpage.prototype = {
+  classDescription: "About Startpage",
+  contractID: "@mozilla.org/network/protocol/about;1?what=startpage",
   classID: Components.ID("{7a2a7a56-827f-4b38-bdac-31aa7ec2971d}"),
   QueryInterface: XPCOMUtils.generateQI([Ci.nsIAboutModule]),
  
@@ -70,6 +70,9 @@ AboutHome.prototype = {
 };
 
 function NSGetModule(compMgr, fileSpec) {
-  return XPCOMUtils.generateModule([AboutHome]);
+  return XPCOMUtils.generateModule([AboutStartpage]);
 }
 
+if (typeof XPCOMUtils.generateNSGetFactory == "function") {
+  const NSGetFactory = XPCOMUtils.generateNSGetFactory([AboutStartpage]);
+}

@@ -7,6 +7,9 @@ case "$1" in
         dpkg-divert --package freegeek-extras-pdx --remove --rename \
             --divert /usr/share/xul-ext/ubufox/components/aboutHome.js.real \
             /usr/share/xul-ext/ubufox/components/aboutHome.js
+        dpkg-divert --package freegeek-extras-pdx --remove --rename \
+            --divert /usr/share/xul-ext/ubufox/components/aboutStartpage.js.real \
+            /usr/share/xul-ext/ubufox/components/aboutStartpage.js
         ;;
 esac
 

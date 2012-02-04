@@ -1,3 +1,10 @@
+freegeek-extras (1.2.33) UNRELEASED; urgency=low
+
+  * Fix installing our homepage with newer Firefox versions (Closes:
+    #26585)
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 04 Feb 2012 11:52:20 -0800
+
 freegeek-extras (1.2.32) freegeek-test; urgency=low
 
   * freegeek-build-utils is built from it's own source package, no other
