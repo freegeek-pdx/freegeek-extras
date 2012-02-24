@@ -1,3 +1,9 @@
+freegeek-extras (1.2.34) UNRELEASED; urgency=low
+
+  * Remove ubufox dependency (see RT #26578)
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 24 Feb 2012 13:37:30 -0800
+
 freegeek-extras (1.2.33) freegeek-test; urgency=low
 
   * Fix installing our homepage with newer Firefox versions (Closes:
