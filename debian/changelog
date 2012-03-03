@@ -1,8 +1,8 @@
-freegeek-extras (1.2.34) UNRELEASED; urgency=low
+freegeek-extras (1.2.34) freegeek-test; urgency=low
 
   * Remove ubufox dependency (see RT #26578)
 
- -- Ryan Niebur <ryan@debian.org>  Fri, 24 Feb 2012 13:37:30 -0800
+ -- Ryan Niebur <ryan@debian.org>  Sat, 03 Mar 2012 11:24:28 -0800
 
 freegeek-extras (1.2.33) freegeek-test; urgency=low
 
