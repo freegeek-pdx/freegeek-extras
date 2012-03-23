@@ -1,2 +1,3 @@
 %gconf.xml etc/skel/.gconf/desktop/gnome/applications/window_manager/
 fgss.desktop usr/share/applications/
+gnome-power-manager/%gconf.xml etc/skel/.gconf/apps/gnome-power-manager/notify/

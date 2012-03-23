@@ -1,3 +1,10 @@
+freegeek-extras (1.2.35) UNRELEASED; urgency=low
+
+  * Set the notify/low_capacity gnome-power-manager gconf value to
+    false as was requested
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 23 Mar 2012 16:06:32 -0700
+
 freegeek-extras (1.2.34) freegeek-test; urgency=low
 
   * Remove ubufox dependency (see RT #26578)
