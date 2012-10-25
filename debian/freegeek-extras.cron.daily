@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Ensure sane PATH
+PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 KERNEL_PREFIX="vmlinu[z|x]-*"
 number_to_keep=3
 
