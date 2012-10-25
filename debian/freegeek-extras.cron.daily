@@ -55,5 +55,6 @@ for version in $purge_versions ; do
 done
 
 if [ -n "$purge_kernels" ]; then
+    logger -t $0 purging $purge_kernels
     apt-get --yes --purge remove $purge_kernels
 fi
