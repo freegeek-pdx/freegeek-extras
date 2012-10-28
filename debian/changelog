@@ -1,10 +1,10 @@
-freegeek-extras (1.2.36) UNRELEASED; urgency=low
+freegeek-extras (1.2.36) freegeek-test; urgency=low
 
   * Add cron.daily job that purges old kernels RT#31633. 
   * Add sources.list support for precise, quantal and raring. 
   * Default to precise for unknown releases.
 
- -- Vagrant Cascadian <vagrant@debian.org>  Wed, 24 Oct 2012 17:59:38 -0700
+ -- Vagrant Cascadian <vagrant@debian.org>  Sat, 27 Oct 2012 16:54:18 -0700
 
 freegeek-extras (1.2.35) freegeek-test; urgency=low
 
