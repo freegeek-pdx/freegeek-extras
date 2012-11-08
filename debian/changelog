@@ -1,6 +1,7 @@
 freegeek-extras (1.2.37) UNRELEASED; urgency=low
 
   * Fix typo causing precise+ to not get a sources.list.d symlink. 
+  * Recommend libreoffice. 
 
  -- Vagrant Cascadian <vagrant@debian.org>  Wed, 07 Nov 2012 17:16:31 -0800
 
