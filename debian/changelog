@@ -1,3 +1,9 @@
+freegeek-extras (1.2.37) UNRELEASED; urgency=low
+
+  * Fix typo causing precise+ to not get a sources.list.d symlink. 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Wed, 07 Nov 2012 17:16:31 -0800
+
 freegeek-extras (1.2.36) freegeek-test; urgency=low
 
   * Add cron.daily job that purges old kernels RT#31633. 

@@ -9,7 +9,7 @@ if [ "$1" = "configure" ]; then
         dapper|edgy|feisty|gutsy) RELEASE="dapper" ;;
         hardy|intrepid|jaunty|karmic) RELEASE="hardy" ;;
         lucid|maverick|natty|oneiric) RELEASE="lucid" ;;
-        precise|quantal|raring|*) RELEASE="precice" ;;
+        precise|quantal|raring|*) RELEASE="precise" ;;
     esac
 
     release_apt_list="/etc/freegeek-extras/apt/$RELEASE.list"
