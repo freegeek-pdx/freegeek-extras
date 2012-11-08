@@ -10,7 +10,7 @@ Package: freegeek-extras
 Architecture: all
 Depends: ${misc:Depends},
 # our junk
- freegeek-ubuntu-pocket-guide, freegeek-build-utils,
+ freegeek-build-utils,
  freegeek-extras-pdx | freegeek-extras-freegeek,
  debconf-utils,
 # pulling in junk
