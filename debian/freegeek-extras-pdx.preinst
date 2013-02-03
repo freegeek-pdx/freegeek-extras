@@ -10,7 +10,7 @@ if [ upgrade != "$1" ] || dpkg --compare-versions "$2" lt "1.2.33"; then
     dpkg-divert --package freegeek-extras-pdx --add --rename \
         --divert /usr/share/xul-ext/ubufox/components/aboutStartpage.js.real /usr/share/xul-ext/ubufox/components/aboutStartpage.js
 fi
-if [ upgrade != "$1" ] || dpkg --compare-versions "$2" lt "1.2.36"; then
+if [ upgrade != "$1" ] || dpkg --compare-versions "$2" lt "1.2.38"; then
     dpkg-divert --package freegeek-extras-pdx --add --rename \
         --divert /usr/sbin/oem-config-wrapper.real /usr/sbin/oem-config-wrapper
 fi
