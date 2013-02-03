@@ -1,3 +1,10 @@
+freegeek-extras (1.2.36) UNRELEASED; urgency=low
+
+  * Add diversion for oem-config-wrapper that will keep the oem user's
+    homedir around (Closes: #32520)
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 02 Feb 2013 19:42:07 -0800
+
 freegeek-extras (1.2.35) freegeek-test; urgency=low
 
   * Set the notify/low_capacity gnome-power-manager gconf value to
