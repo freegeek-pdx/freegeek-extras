@@ -8,7 +8,8 @@ if [ "$1" = "configure" ]; then
     case "$(lsb_release --codename --short)" in
         dapper|edgy|feisty|gutsy) RELEASE="dapper" ;;
         hardy|intrepid|jaunty|karmic) RELEASE="hardy" ;;
-        lucid|maverick|*) RELEASE="lucid" ;;
+        lucid|maverick|natty|oneiric) RELEASE="lucid" ;;
+        precise|quantal|raring|*) RELEASE="precise" ;;
     esac
 
     release_apt_list="/etc/freegeek-extras/apt/$RELEASE.list"

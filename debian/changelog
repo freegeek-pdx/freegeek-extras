@@ -1,9 +1,25 @@
-freegeek-extras (1.2.36) UNRELEASED; urgency=low
+freegeek-extras (1.2.38) UNRELEASED; urgency=low
 
   * Add diversion for oem-config-wrapper that will keep the oem user's
     homedir around (Closes: #32520)
 
  -- Ryan Niebur <ryan@debian.org>  Sat, 02 Feb 2013 19:42:07 -0800
+
+freegeek-extras (1.2.37) freegeek-test; urgency=low
+
+  * Fix typo causing precise+ to not get a sources.list.d symlink. 
+  * Recommend libreoffice. 
+  * Remove freegeek-ubuntu-pocket-guide from Depends. 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Thu, 08 Nov 2012 12:25:45 -0800
+
+freegeek-extras (1.2.36) freegeek-test; urgency=low
+
+  * Add cron.daily job that purges old kernels RT#31633. 
+  * Add sources.list support for precise, quantal and raring. 
+  * Default to precise for unknown releases.
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Sat, 27 Oct 2012 16:54:18 -0700
 
 freegeek-extras (1.2.35) freegeek-test; urgency=low
 
