@@ -1,11 +1,11 @@
-freegeek-extras (1.2.38) UNRELEASED; urgency=low
+freegeek-extras (1.2.38) freegeek-test; urgency=low
 
   * Add diversion for oem-config-wrapper that will keep the oem user's
     homedir around (Closes: #32520)
   * Enable hibernation for all users in the 10-vendor.d PolicyKit
     localauthority directory (Closes: #33537)
 
- -- Ryan Niebur <ryan@debian.org>  Sun, 03 Feb 2013 08:14:03 -0800
+ -- Ryan Niebur <ryan@debian.org>  Fri, 08 Feb 2013 14:07:35 -0800
 
 freegeek-extras (1.2.37) freegeek-test; urgency=low
 
