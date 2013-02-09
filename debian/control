@@ -32,6 +32,7 @@ Provides: freegeek-extras-freegeek
 Replaces: freegeek-extras
 Conflicts: freegeek-extras-freegeek
 Breaks: freegeek-extras (<= 1.2.2)
+Recommends: ubuntu-restricted-extras
 Description: Freegeek Extras configuration for PDX specific stuff
  This contains freegeek-extras configuration files specific to
  Freegeek Portland's infrastructure.
