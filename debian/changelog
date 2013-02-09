@@ -1,4 +1,4 @@
-freegeek-extras (1.2.39) UNRELEASED; urgency=low
+freegeek-extras (1.2.39) freegeek-test; urgency=low
 
   * Add ubuntu-restricted-extras to the Recommends of freegeek-extras-
     pdx, which means new Freekboxen images will be installed with the set
@@ -7,7 +7,7 @@ freegeek-extras (1.2.39) UNRELEASED; urgency=low
     the box and now tech support will no longer have to install this for
     so many people. (Closes: #33277, #12720)
 
- -- Ryan Niebur <ryan@debian.org>  Fri, 08 Feb 2013 16:35:03 -0800
+ -- Ryan Niebur <ryan@debian.org>  Fri, 08 Feb 2013 16:42:37 -0800
 
 freegeek-extras (1.2.38) freegeek-test; urgency=low
 
