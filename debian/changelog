@@ -1,3 +1,10 @@
+freegeek-extras (1.2.40) UNRELEASED; urgency=low
+
+  * Revert adding ubuntu-restricted-extras to Recommends, this will be
+    handled with a new, separate package
+
+ -- Ryan Niebur <ryan@debian.org>  Sun, 17 Feb 2013 16:27:13 -0800
+
 freegeek-extras (1.2.39) freegeek-test; urgency=low
 
   * Add ubuntu-restricted-extras to the Recommends of freegeek-extras-
