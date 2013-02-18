@@ -1,3 +1,6 @@
 %gconf.xml etc/skel/.gconf/desktop/gnome/applications/window_manager/
 fgss.desktop usr/share/applications/
+launch-install-fg-restricted-extras.desktop usr/share/applications/
 gnome-power-manager/%gconf.xml etc/skel/.gconf/apps/gnome-power-manager/notify/
+bin/launch-install-fg-restricted-extras usr/bin/
+bin/install-fg-restricted-extras usr/sbin/

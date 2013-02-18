@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+if [ "$(id -u)" != "0" ]; then
+   echo "Error: $0 must be ran as root"
+   exit 1
+fi
+
+echo "================================================="
+echo "=    RESTRICTED EXTRAS WILL NOW BE INSTALLED.   ="
+echo "= PLEASE ALLOW THE INSTALLATION TO COMPLETE AND ="
+echo "=      FOLLOW ANY FURTHER INSTRUCTION GIVEN     ="
+echo "================================================="
+echo ""
+
+sed -i.bak '!/multiverse/ s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
+# TODO: how will exit codes affect this, are some nonfatal?
+apt-get update
+apt-get install -y xubuntu-restricted-extras vlc
+# TODO: same as above
+/usr/share/doc/libdvdread4/install-css.sh
+
+echo "=========================="
+echo "= INSTALLATION SUCCEEDED ="
+echo "=========================="

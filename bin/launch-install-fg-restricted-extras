@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+
+# TODO: is this the best option?
+GKSU="gksu"
+
+alert() {
+  zenity --error --text="$@"
+}
+
+yesno() {
+  zenity --question --text="$@"
+}
+
+success() {
+  zenity --info --text="$@"
+}
+
+if ! ping -c 1 freegeek.org; then
+  alert "It seems you are not currently connected to the internet.\nPlease try again when you have an internet connection available."
+  exit 1
+fi
+
+if yesno "Would you like to install the Restricted Extras and Codecs now?"; then
+  if xterm -e "$GKSU install-fg-restricted-extras"; then
+    success "Restricted packages were successfully installed, you should now be able to use DVDs, Flash player, etc."
+  else
+    alert "Installation of restricted extras failed."
+  fi
+fi
