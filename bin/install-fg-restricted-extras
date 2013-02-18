@@ -14,7 +14,7 @@ echo "=      FOLLOW ANY FURTHER INSTRUCTION GIVEN     ="
 echo "================================================="
 echo ""
 
-sed -i.bak '!/multiverse/ s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
+sed -i.bak '/multiverse/ !s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
 # TODO: how will exit codes affect this, are some nonfatal?
 apt-get update
 apt-get install -y xubuntu-restricted-extras vlc
