@@ -1,7 +1,7 @@
 freegeek-extras (1.2.41) UNRELEASED; urgency=low
 
-  * Add a script to automate installation of XRE and DVD Codecs (Closes:
-    #33277)
+  * Add a script to automate installation of XRE and DVD Codecs
+    (Closes: #33277, #12720)
 
  -- Ryan Niebur <ryan@debian.org>  Sun, 17 Feb 2013 17:40:36 -0800
 
