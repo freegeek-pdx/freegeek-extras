@@ -2,6 +2,7 @@ freegeek-extras (1.2.40) freegeek-test; urgency=low
 
   * Revert adding ubuntu-restricted-extras to Recommends, this will be
     handled with a new, separate package
+  * Rebuild in a lucid chroot this time (Closes: 33760)
 
  -- Ryan Niebur <ryan@debian.org>  Sun, 17 Feb 2013 17:03:53 -0800
 
