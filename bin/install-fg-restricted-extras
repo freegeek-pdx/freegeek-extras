@@ -14,11 +14,13 @@ echo "=      FOLLOW ANY FURTHER INSTRUCTION GIVEN     ="
 echo "================================================="
 echo ""
 
+# set up xubuntu-restricted-extras
 sed -i.bak '/multiverse/ !s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
-# TODO: how will exit codes affect this, are some nonfatal?
 apt-get update
 apt-get install -y xubuntu-restricted-extras vlc
-# TODO: same as above
+# verify successful installation
+dpkg-query --show xubuntu-restricted-extras >/dev/null
+# install libdvdcss
 /usr/share/doc/libdvdread4/install-css.sh
 
 echo "=========================="
