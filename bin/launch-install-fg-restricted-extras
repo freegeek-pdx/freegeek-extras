@@ -12,23 +12,11 @@ yesno() {
   zenity --question --text="$@"
 }
 
-success() {
-  zenity --info --text="$@"
-}
-
 if ! ping -c 1 freegeek.org; then
   alert "It seems you are not currently connected to the internet.\nPlease try again when you have an internet connection available."
   exit 1
 fi
 
 if yesno "Would you like to install the Restricted Extras and Codecs now?"; then
-  F=$(mktemp)
-  xterm -e "$GKSU install-fg-restricted-extras; echo \$? > $F"
-  RETVAL=$(cat $F)
-  rm -f $F
-  if [ "$RETVAL" = "0" ]; then
-    success "Restricted packages were successfully installed, you should now be able to use DVDs, Flash player, etc."
-  else
-    alert "Installation of restricted extras failed."
-  fi
+  xterm -e "$GKSU install-fg-restricted-extras"
 fi

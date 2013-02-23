@@ -7,12 +7,30 @@ if [ "$(id -u)" != "0" ]; then
    exit 1
 fi
 
+alert() {
+  if test -n "$DISPLAY"; then
+    zenity --error --text="$@"
+  else
+    echo "ERROR: $@"
+  fi
+}
+
+success() {
+  if test -n "$DISPLAY"; then
+    zenity --info --text="$@"
+  else
+    echo "SUCCESS: $@"
+  fi  
+}
+
 echo "================================================="
 echo "=    RESTRICTED EXTRAS WILL NOW BE INSTALLED.   ="
 echo "= PLEASE ALLOW THE INSTALLATION TO COMPLETE AND ="
 echo "=      FOLLOW ANY FURTHER INSTRUCTION GIVEN     ="
 echo "================================================="
 echo ""
+
+trap 'echo "======================="; echo "= INSTALLATION FAILED ="; echo "======================="; alert "Installation of restricted extras failed.";' EXIT
 
 # set up xubuntu-restricted-extras
 sed -i.bak '/multiverse/ !s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
@@ -26,3 +44,5 @@ dpkg-query --show xubuntu-restricted-extras >/dev/null
 echo "=========================="
 echo "= INSTALLATION SUCCEEDED ="
 echo "=========================="
+success "Restricted packages were successfully installed, you should now be able to use DVDs, Flash player, etc."
+trap - EXIT

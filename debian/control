@@ -21,7 +21,8 @@ Recommends: oem-config-gtk | oem-config,
  usb-modeswitch,
  libreoffice,
 # launch-install-fg-restricted-extras
- gksu
+ gksu,
+ zenity
 Description: customizations for freegeek users
  Freegeek's diagnostic scripts and some extra files and
  configuration settings. This package also installs some
