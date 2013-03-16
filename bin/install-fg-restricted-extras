@@ -35,7 +35,12 @@ trap 'echo "======================="; echo "= INSTALLATION FAILED ="; echo "====
 # set up xubuntu-restricted-extras
 sed -i.bak '/multiverse/ !s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
 apt-get update
-apt-get install -y xubuntu-restricted-extras vlc
+if [ ! -e /usr/share/package-data-downloads/ttf-mscorefonts-installer ]; then
+    REMOVEPKG=ttf-mscorefonts-installer-
+else
+    REMOVEPKG=""
+fi
+aptitude install -y xubuntu-restricted-extras vlc $REMOVEPKG
 # verify successful installation
 dpkg-query --show xubuntu-restricted-extras >/dev/null
 # install libdvdcss
