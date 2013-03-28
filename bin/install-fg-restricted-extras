@@ -33,7 +33,18 @@ echo ""
 trap 'echo "======================="; echo "= INSTALLATION FAILED ="; echo "======================="; alert "Installation of restricted extras failed.";' EXIT
 
 # set up xubuntu-restricted-extras
-sed -i.bak '/multiverse/ !s/main restricted/main restricted multiverse/g' /etc/apt/sources.list
+archive_list='http://us.archive.ubuntu.com/ubuntu http://security.ubuntu.com/ubuntu'
+sources_list='/etc/apt/sources.list /etc/apt/sources.list.d/*.list'
+multiverse_sources_list='/etc/apt/sources.list.d/freegeek-multiverse.list'
+codename=$(lsb_release --short --codename)
+for archive in $archive_list ; do
+    if [ -z $(egrep "deb ${archive}.*multiverse" $sources_list | sed /#.*multiverse/d) ]; then
+        if [ ! -f ${multiverse_sources_list} ]; then
+            echo "## Entries for enabling xubuntu-restricted-extras' > ${multiverse_sources_list}
+        fi
+        echo "deb ${entry} ${codename} multiverse" >> ${multiverse_sources_list}
+    fi
+done 
 apt-get update
 if [ ! -e /usr/share/package-data-downloads/ttf-mscorefonts-installer ]; then
     REMOVEPKG=ttf-mscorefonts-installer-
