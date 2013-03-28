@@ -1,9 +1,9 @@
-freegeek-extras (1.2.43) UNRELEASED; urgency=low
+freegeek-extras (1.2.43) freegeek-test; urgency=low
 
   * Only add multiverse sources.list entries if it doesn't already have
     multiverse entries. RT#34689. 
 
- -- Vagrant Cascadian <vagrant@debian.org>  Thu, 28 Mar 2013 15:50:02 -0700
+ -- Vagrant Cascadian <vagrant@debian.org>  Thu, 28 Mar 2013 16:15:41 -0700
 
 freegeek-extras (1.2.42) freegeek-test; urgency=low
 
