@@ -38,11 +38,11 @@ sources_list='/etc/apt/sources.list /etc/apt/sources.list.d/*.list'
 multiverse_sources_list='/etc/apt/sources.list.d/freegeek-multiverse.list'
 codename=$(lsb_release --short --codename)
 for archive in $archive_list ; do
-    if [ -z $(egrep "deb ${archive}.*multiverse" $sources_list | sed /#.*multiverse/d) ]; then
+    if ! grep -E -q "^deb ${archive}.*multiverse" $sources_list ; then
         if [ ! -f ${multiverse_sources_list} ]; then
-            echo "## Entries for enabling xubuntu-restricted-extras' > ${multiverse_sources_list}
+            echo '## Entries for enabling xubuntu-restricted-extras' > ${multiverse_sources_list}
         fi
-        echo "deb ${entry} ${codename} multiverse" >> ${multiverse_sources_list}
+        echo "deb ${archive} ${codename} multiverse" >> ${multiverse_sources_list}
     fi
 done 
 apt-get update
