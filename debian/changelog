@@ -1,3 +1,9 @@
+freegeek-extras (1.2.44) UNRELEASED; urgency=low
+
+  * Support multiverse security and updates repositories properly.
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Thu, 28 Mar 2013 16:52:24 -0700
+
 freegeek-extras (1.2.43) freegeek-test; urgency=low
 
   * Only add multiverse sources.list entries if it doesn't already have

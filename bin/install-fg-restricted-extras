@@ -42,7 +42,15 @@ for archive in $archive_list ; do
         if [ ! -f ${multiverse_sources_list} ]; then
             echo '## Entries for enabling xubuntu-restricted-extras' > ${multiverse_sources_list}
         fi
-        echo "deb ${archive} ${codename} multiverse" >> ${multiverse_sources_list}
+        case ${archive} in
+            *security*) 
+                echo "deb ${archive} ${codename}-security multiverse" >> ${multiverse_sources_list}
+            ;;
+            *)
+                echo "deb ${archive} ${codename} multiverse" >> ${multiverse_sources_list}
+                echo "deb ${archive} ${codename}-updates multiverse" >> ${multiverse_sources_list}
+            ;;
+        esac
     fi
 done 
 apt-get update
