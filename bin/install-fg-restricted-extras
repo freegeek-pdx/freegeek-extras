@@ -33,26 +33,38 @@ echo ""
 trap 'echo "======================="; echo "= INSTALLATION FAILED ="; echo "======================="; alert "Installation of restricted extras failed.";' EXIT
 
 # set up xubuntu-restricted-extras
-archive_list='http://us.archive.ubuntu.com/ubuntu http://security.ubuntu.com/ubuntu'
+codename=$(lsb_release --short --codename)
+
+primary_archive='http://us.archive.ubuntu.com/ubuntu'
+primary_dists="${codename} ${codename}-updates ${codename}-backports"
+
+security_archive='http://security.ubuntu.com/ubuntu'
+security_dists="${codename}-security"
+
 sources_list='/etc/apt/sources.list /etc/apt/sources.list.d/*.list'
 multiverse_sources_list='/etc/apt/sources.list.d/freegeek-multiverse.list'
-codename=$(lsb_release --short --codename)
-for archive in $archive_list ; do
-    if ! grep -E -q "^deb ${archive}.*multiverse" $sources_list ; then
-        if [ ! -f ${multiverse_sources_list} ]; then
-            echo '## Entries for enabling xubuntu-restricted-extras' > ${multiverse_sources_list}
+
+add_multiverse_entry() {
+    archive="$1"
+    dist="$2"
+    if ! grep -E -q "^deb ${archive}.*${dist}.*multiverse" $sources_list ; then
+        if [ ! -f "${multiverse_sources_list}" ]; then
+            echo '## Entries for enabling xubuntu-restricted-extras' > "${multiverse_sources_list}"
         fi
-        case ${archive} in
-            *security*) 
-                echo "deb ${archive} ${codename}-security multiverse" >> ${multiverse_sources_list}
-            ;;
-            *)
-                echo "deb ${archive} ${codename} multiverse" >> ${multiverse_sources_list}
-                echo "deb ${archive} ${codename}-updates multiverse" >> ${multiverse_sources_list}
-            ;;
-        esac
+        echo "deb ${archive} ${dist} multiverse" >> "${multiverse_sources_list}"
     fi
-done 
+}
+
+# Add entries for archives
+for x in $primary_dists ; do
+    add_multiverse_entry "$primary_archive" "$x"
+done
+
+# Add entries for security archives
+for x in $security_dists ; do
+    add_multiverse_entry "$security_archive" "$x"
+done
+
 apt-get update
 if [ ! -e /usr/share/package-data-downloads/ttf-mscorefonts-installer ]; then
     REMOVEPKG=ttf-mscorefonts-installer-
