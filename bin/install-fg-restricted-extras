@@ -71,6 +71,7 @@ if [ ! -e /usr/share/package-data-downloads/ttf-mscorefonts-installer ]; then
 else
     REMOVEPKG=""
 fi
+apt-get install aptitude
 aptitude install -y xubuntu-restricted-extras vlc $REMOVEPKG
 # verify successful installation
 dpkg-query --show xubuntu-restricted-extras >/dev/null

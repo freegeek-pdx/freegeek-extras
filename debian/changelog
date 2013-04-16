@@ -1,3 +1,9 @@
+freegeek-extras (1.2.46) UNRELEASED; urgency=low
+
+  * install-fg-restricted-extras: Ensure aptitude is installed. 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Tue, 16 Apr 2013 15:59:53 -0700
+
 freegeek-extras (1.2.45) freegeek-test; urgency=low
 
   * Add freegeek-ppa-keyring to Recommends for freegeek-extras-pdx
