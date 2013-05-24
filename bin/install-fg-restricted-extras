@@ -1,0 +1,85 @@
+#!/bin/sh
+
+set -e
+
+if [ "$(id -u)" != "0" ]; then
+   echo "Error: $0 must be ran as root"
+   exit 1
+fi
+
+alert() {
+  if test -n "$DISPLAY"; then
+    zenity --error --text="$@"
+  else
+    echo "ERROR: $@"
+  fi
+}
+
+success() {
+  if test -n "$DISPLAY"; then
+    zenity --info --text="$@"
+  else
+    echo "SUCCESS: $@"
+  fi  
+}
+
+echo "================================================="
+echo "=    RESTRICTED EXTRAS WILL NOW BE INSTALLED.   ="
+echo "= PLEASE ALLOW THE INSTALLATION TO COMPLETE AND ="
+echo "=      FOLLOW ANY FURTHER INSTRUCTION GIVEN     ="
+echo "================================================="
+echo ""
+
+trap 'echo "======================="; echo "= INSTALLATION FAILED ="; echo "======================="; alert "Installation of restricted extras failed.";' EXIT
+
+# set up xubuntu-restricted-extras
+codename=$(lsb_release --short --codename)
+
+primary_archive='http://us.archive.ubuntu.com/ubuntu'
+primary_dists="${codename} ${codename}-updates ${codename}-backports"
+
+security_archive='http://security.ubuntu.com/ubuntu'
+security_dists="${codename}-security"
+
+sources_list='/etc/apt/sources.list /etc/apt/sources.list.d/*.list'
+multiverse_sources_list='/etc/apt/sources.list.d/freegeek-multiverse.list'
+
+add_multiverse_entry() {
+    archive="$1"
+    dist="$2"
+    if ! grep -E -q "^deb ${archive}.*${dist}.*multiverse" $sources_list ; then
+        if [ ! -f "${multiverse_sources_list}" ]; then
+            echo '## Entries for enabling xubuntu-restricted-extras' > "${multiverse_sources_list}"
+        fi
+        echo "deb ${archive} ${dist} multiverse" >> "${multiverse_sources_list}"
+    fi
+}
+
+# Add entries for archives
+for x in $primary_dists ; do
+    add_multiverse_entry "$primary_archive" "$x"
+done
+
+# Add entries for security archives
+for x in $security_dists ; do
+    add_multiverse_entry "$security_archive" "$x"
+done
+
+apt-get update
+if [ ! -e /usr/share/package-data-downloads/ttf-mscorefonts-installer ]; then
+    REMOVEPKG=ttf-mscorefonts-installer-
+else
+    REMOVEPKG=""
+fi
+apt-get install aptitude
+aptitude install -y xubuntu-restricted-extras vlc $REMOVEPKG
+# verify successful installation
+dpkg-query --show xubuntu-restricted-extras >/dev/null
+# install libdvdcss
+/usr/share/doc/libdvdread4/install-css.sh
+
+echo "=========================="
+echo "= INSTALLATION SUCCEEDED ="
+echo "=========================="
+success "Restricted packages were successfully installed, you should now be able to use DVDs, Flash player, etc."
+trap - EXIT

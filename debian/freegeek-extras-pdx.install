@@ -1,4 +1,6 @@
 printme.yml etc/
 debian/*.list etc/freegeek-extras/apt/
 home/index.html usr/share/freegeek-extras/home/
-js/aboutHome.js usr/share/xul-ext/ubufox/components/
+js/aboutStartpage.js usr/share/xul-ext/ubufox/components/
+bin/oem-config-wrapper usr/sbin/
+com.ubuntu.enable-hibernate.pkla etc/polkit-1/localauthority/10-vendor.d/

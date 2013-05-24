@@ -1,9 +1,141 @@
-freegeek-extras (1.2.27) UNRELEASED; urgency=low
+freegeek-extras (1.2.46) UNRELEASED; urgency=low
+
+  * install-fg-restricted-extras: Ensure aptitude is installed. 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Tue, 16 Apr 2013 15:59:53 -0700
+
+freegeek-extras (1.2.45) freegeek-test; urgency=low
+
+  * Add freegeek-ppa-keyring to Recommends for freegeek-extras-pdx
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 30 Mar 2013 10:25:56 -0700
+
+freegeek-extras (1.2.44) freegeek-test; urgency=low
+
+  * Support multiverse security, updates and backports repositories properly.
+    (Closes: #34689). 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Fri, 29 Mar 2013 15:22:34 -0700
+
+freegeek-extras (1.2.43) freegeek-test; urgency=low
+
+  * Only add multiverse sources.list entries if it doesn't already have
+    multiverse entries. RT#34689. 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Thu, 28 Mar 2013 16:15:41 -0700
+
+freegeek-extras (1.2.42) freegeek-test; urgency=low
+
+  * Fix install-fg-restricted-extras on old images by preventing
+    installation of ttf-mscorefonts-installer (Closes: 34206)
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 16 Mar 2013 13:20:57 -0700
+
+freegeek-extras (1.2.41) freegeek-test; urgency=low
+
+  * Add a script to automate installation of XRE and DVD Codecs
+    (Closes: #33277, #12720)
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 23 Feb 2013 12:55:26 -0800
+
+freegeek-extras (1.2.40) freegeek-test; urgency=low
+
+  * Revert adding ubuntu-restricted-extras to Recommends, this will be
+    handled with a new, separate package
+  * Rebuild in a lucid chroot this time (Closes: 33760)
+
+ -- Ryan Niebur <ryan@debian.org>  Sun, 17 Feb 2013 17:03:53 -0800
+
+freegeek-extras (1.2.39) freegeek-test; urgency=low
+
+  * Add ubuntu-restricted-extras to the Recommends of freegeek-extras-
+    pdx, which means new Freekboxen images will be installed with the set
+    of Ubuntu Restricted Extras packages installed by default. This will
+    make the Freekbox significantly more useful for our user base out of
+    the box and now tech support will no longer have to install this for
+    so many people. (Closes: #33277, #12720)
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 08 Feb 2013 16:42:37 -0800
+
+freegeek-extras (1.2.38) freegeek-test; urgency=low
+
+  * Add diversion for oem-config-wrapper that will keep the oem user's
+    homedir around (Closes: #32520)
+  * Enable hibernation for all users in the 10-vendor.d PolicyKit
+    localauthority directory (Closes: #33537)
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 08 Feb 2013 14:07:35 -0800
+
+freegeek-extras (1.2.37) freegeek-test; urgency=low
+
+  * Fix typo causing precise+ to not get a sources.list.d symlink. 
+  * Recommend libreoffice. 
+  * Remove freegeek-ubuntu-pocket-guide from Depends. 
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Thu, 08 Nov 2012 12:25:45 -0800
+
+freegeek-extras (1.2.36) freegeek-test; urgency=low
+
+  * Add cron.daily job that purges old kernels RT#31633. 
+  * Add sources.list support for precise, quantal and raring. 
+  * Default to precise for unknown releases.
+
+ -- Vagrant Cascadian <vagrant@debian.org>  Sat, 27 Oct 2012 16:54:18 -0700
+
+freegeek-extras (1.2.35) freegeek-test; urgency=low
+
+  * Set the notify/low_capacity gnome-power-manager gconf value to
+    false as was requested
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 23 Mar 2012 16:07:06 -0700
+
+freegeek-extras (1.2.34) freegeek-test; urgency=low
+
+  * Remove ubufox dependency (see RT #26578)
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 03 Mar 2012 11:24:28 -0800
+
+freegeek-extras (1.2.33) freegeek-test; urgency=low
+
+  * Fix installing our homepage with newer Firefox versions (Closes:
+    #26585)
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 04 Feb 2012 12:15:34 -0800
+
+freegeek-extras (1.2.32) freegeek-test; urgency=low
+
+  * freegeek-build-utils is built from it's own source package, no other
+    changes
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 03 Dec 2011 10:14:18 -0800
+
+freegeek-extras (1.2.31) freegeek-test; urgency=low
+
+  * don't fail to install if cups isn't installed
+  * printme: use default configuration settings if there is no
+    /etc/printme.yml
+
+ -- Ryan Niebur <ryan@debian.org>  Sat, 19 Nov 2011 16:38:05 -0800
+
+freegeek-extras (1.2.29) freegeek-test; urgency=low
+
+  * send dmidecode Maximum Capacity for memory as :max_capacity
+
+ -- Ryan Niebur <ryan@debian.org>  Tue, 06 Sep 2011 23:51:42 -0700
+
+freegeek-extras (1.2.28) freegeek-test; urgency=low
+
+  * Rebuild fix
+
+ -- Ryan Niebur <ryan@debian.org>  Wed, 27 Jul 2011 11:11:10 -0700
+
+freegeek-extras (1.2.27) freegeek-test; urgency=low
 
   * Remove the Linux specific Google search box, Google doesn't have
     that feature anymore
+  * Add Dell-fix scripts
 
- -- Ryan Niebur <ryan@debian.org>  Wed, 13 Jul 2011 17:29:39 -0700
+ -- Ryan Niebur <ryan@debian.org>  Tue, 26 Jul 2011 14:11:10 -0700
 
 freegeek-extras (1.2.26) freegeek-test; urgency=low
 

@@ -1,0 +1,60 @@
+#!/bin/sh
+
+# Ensure sane PATH
+PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+KERNEL_PREFIX="vmlinu[z|x]-*"
+number_to_keep=3
+
+# kernel_versions function snagged from ltsp:
+# https://bazaar.launchpad.net/~ltsp-upstream/ltsp/ltsp-trunk/view/head:/client/share/ltsp/update-kernels
+
+# List kernel versions in a descending order, while also respecting the e.g.
+#   LIST_KERNELS="generic generic-pae *"
+# order that the user may have put in $CHROOT/etc/ltsp/update-kernels.conf.
+# Distros are required to set e.g. KERNEL_PREFIX="vmlinuz-*', KERNEL_SUFFIX="".
+# The * goes where the version is expected to go.
+kernel_versions() {
+    local - kernels arch loop_kernels kernel
+
+    # Disable glob expansion for this function
+    set -f
+    for kernel in $(find "/boot/" -type f -name "$KERNEL_PREFIX$KERNEL_SUFFIX" -printf "%f\n"); do
+        # Append a descending number to the version
+        i=1000
+        for arch in ${LIST_KERNELS:-*}; do
+            i=$(($i-1))
+            case "$kernel" in
+                $KERNEL_PREFIX$arch$KERNEL_SUFFIX)
+                    version_arch=${kernel#${KERNEL_PREFIX%*}}
+                    version_arch=${version_arch%${KERNEL_SUFFIX#*}}
+                    version=${version_arch#$arch}
+                    version=${version_arch%$arch}
+                    echo "$version-$i $version_arch"
+                    break 1
+                    ;;
+            esac
+        done
+    done | sort -frV | awk '{ print $2 }'
+}
+
+# keep a certain number of kernels, plus the running kernel.
+keep_versions="$(echo $(kernel_versions | head -n $number_to_keep) $(uname -r) | sed -e 's, ,|,g' )"
+all_versions="$(kernel_versions)"
+
+purge_versions=""
+for version in $all_versions ; do
+   if [ -z "$(echo $version | egrep $keep_versions)" ]; then
+	purge_versions="$purge_versions $version"
+   fi
+done
+
+purge_kernels=""
+for version in $purge_versions ; do
+	purge_kernels="$purge_kernels linux-image-$version"	
+done
+
+if [ -n "$purge_kernels" ]; then
+    logger -t $0 purging $purge_kernels
+    apt-get --yes --purge remove $purge_kernels
+fi

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+
+GKSU="gksu"
+
+alert() {
+  zenity --error --text="$@"
+}
+
+yesno() {
+  zenity --question --text="$@"
+}
+
+if ! ping -c 1 freegeek.org; then
+  alert "It seems you are not currently connected to the internet.\nPlease try again when you have an internet connection available."
+  exit 1
+fi
+
+if yesno "Would you like to install the Restricted Extras and Codecs now?"; then
+  xterm -e "$GKSU install-fg-restricted-extras"
+fi

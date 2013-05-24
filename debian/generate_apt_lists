@@ -12,6 +12,6 @@ dest_list_dir='debian/'
 mkdir -p $dest_list_dir
 
 # generate entries for LTS releases
-for dist in dapper hardy lucid; do
+for dist in dapper hardy lucid precise; do
     substitute_release $list_file $dist > $dest_list_dir/$dist.list
 done

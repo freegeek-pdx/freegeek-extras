@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Install Restricted Extras & DVD Codecs
+GenericName=Install Restricted Extras & DVD Codecs
+Comment=
+Exec=launch-install-fg-restricted-extras
+Icon=FreeGeek
+Terminal=false
+Type=Application
