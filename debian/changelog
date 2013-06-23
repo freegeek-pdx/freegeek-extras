@@ -1,3 +1,9 @@
+freegeek-extras (1.2.46) UNRELEASED; urgency=low
+
+  * Add Paul's net_check script (Closes: #35493)
+
+ -- Ryan Niebur <ryan@debian.org>  Sun, 23 Jun 2013 12:58:55 -0700
+
 freegeek-extras (1.2.45) freegeek-test; urgency=low
 
   * Add freegeek-ppa-keyring to Recommends for freegeek-extras-pdx
