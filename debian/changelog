@@ -1,4 +1,4 @@
-freegeek-extras (1.2.46) UNRELEASED; urgency=low
+freegeek-extras (1.2.46) freegeek-test; urgency=low
 
   [ Ryan Niebur ]
   * Add Paul's net_check script (Closes: #35493)
@@ -6,7 +6,7 @@ freegeek-extras (1.2.46) UNRELEASED; urgency=low
   [ Vagrant Cascadian ]
   * install-fg-restricted-extras: Ensure aptitude is installed.
 
- -- Vagrant Cascadian <vagrant@debian.org>  Tue, 16 Apr 2013 15:59:53 -0700
+ -- Vagrant Cascadian <vagrant@freegeek.org>  Tue, 30 Jul 2013 14:29:14 -0700
 
 freegeek-extras (1.2.45) freegeek-test; urgency=low
 
