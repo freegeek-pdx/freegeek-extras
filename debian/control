@@ -22,7 +22,10 @@ Recommends: oem-config-gtk | oem-config,
  libreoffice,
 # launch-install-fg-restricted-extras
  gksu,
- zenity
+ zenity,
+# laptop build needs lm-sensors for testing temperature
+# http://todo.freegeek.org/37120
+ lm-sensors
 Description: customizations for freegeek users
  Freegeek's diagnostic scripts and some extra files and
  configuration settings. This package also installs some
