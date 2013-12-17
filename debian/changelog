@@ -1,9 +1,10 @@
-freegeek-extras (1.2.48) UNRELEASED; urgency=low
+freegeek-extras (1.2.48) precise; urgency=low
 
   * Recommend lm-sensors so laptop build can test temperature more easily.
     (Closes: #37120).
+  * debian/control: Update Section and Uploaders. 
 
- -- Vagrant Cascadian <vagrant@debian.org>  Tue, 03 Sep 2013 16:03:59 -0700
+ -- Vagrant Cascadian <vagrant@freegeek.org>  Tue, 17 Dec 2013 14:09:25 -0800
 
 freegeek-extras (1.2.47) freegeek-test; urgency=low
 
